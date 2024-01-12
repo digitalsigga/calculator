@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 200px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 500px;
+    width: 350px;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.box1 {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.box2 {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.box3 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+button {
+    height: 70px;
+    width: 70px;
+
+}
+
+
+
