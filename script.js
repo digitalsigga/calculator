@@ -1,18 +1,51 @@
-
-// Get the reference to the div element
-const box2 = document.querySelector(".box2");
-
-// Function to handle button click event
-function handleClick(value) {
-    // Update the content of the div with the button value
-    box2.textContent = value;
+class Calculator{
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        this.clear();
+    }
+    
+    clear() {
+        this.currentOperand = '';
+        this.previousOperand = '';
+        this.operation = undefined;
+    }
+    
+    delete() {
+        // implemenation
+    }
+    
+    appendNumber(number) {
+        if(number=== '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString();
+    }
+    
+    chooseOperation(operation) {
+        // implemenation
+    }
+    
+    compute() {
+        
+    }
+    
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand;
+    }
 }
+    
+const numberButtons = document.querySelectorAll('[data-number]')
+const operationButtons = document.querySelectorAll('[data-operation')
+const equalButton = document.querySelector('[data-equals]')
+const deleteButton = document.querySelector('[data-delete]')
+const allClearButton = document.querySelector('[data-all-clear]')
+const previousOperandTextElement = document.querySelector('[data-previous-operand]')
+const currentOperandTextElement = document.querySelector('[data-current-operand]')
 
-// Add event listeners to the buttons
-const buttons = document.querySelectorAll(".box3 button");
-buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        const value = event.target.textContent;
-        handleClick(value);
-    });
-});
+const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    })
+})  
